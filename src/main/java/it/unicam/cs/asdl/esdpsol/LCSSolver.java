@@ -8,7 +8,7 @@ package it.unicam.cs.asdl.esdpsol;
  *
  * <p>Il ciclo riempie m in O(nm); traceBack ricostruisce una soluzione
  * seguendo a ritroso le dipendenze della ricorrenza. Non vi sono TODO.
- * 
+ *
  * @author Luca Tesei
  *
  */
@@ -32,14 +32,11 @@ public class LCSSolver {
 
     /**
      * Costruisce un risolutore LCS fra due stringhe date.
-     * 
-     * @param x
-     *              la prima stringa
-     * @param y
-     *              la seconda stringa
-     * @throws NullPointerException
-     *                                  se almeno una delle due stringhe passate
-     *                                  è nulla
+     *
+     * @param x la prima stringa
+     * @param y la seconda stringa
+     * @throws NullPointerException se almeno una delle due stringhe passate
+     *                              è nulla
      */
     public LCSSolver(String x, String y) {
         if (x == null || y == null)
@@ -54,6 +51,7 @@ public class LCSSolver {
 
     /**
      * Restituisce la prima stringa considerata.
+     *
      * @return the string x
      */
     public String getX() {
@@ -62,6 +60,7 @@ public class LCSSolver {
 
     /**
      * Restituisce la seconda stringa considerata.
+     *
      * @return the string y
      */
     public String getY() {
@@ -103,9 +102,9 @@ public class LCSSolver {
 
     /**
      * Determina se questo solver ha già risolto il problema.
-     * 
+     *
      * @return true se il problema LCS di questo solver è già stato risolto
-     *         precedentemente, false altrimenti
+     * precedentemente, false altrimenti
      */
     public boolean isSolved() {
         return this.isSolved;
@@ -113,11 +112,10 @@ public class LCSSolver {
 
     /**
      * Determina la lunghezza massima delle sottosequenze comuni.
-     * 
+     *
      * @return la massima lunghezza delle sottosequenze comuni di x e y.
-     * @throws IllegalStateException
-     *                                   se il solver non ha ancora risolto il
-     *                                   problema LCS
+     * @throws IllegalStateException se il solver non ha ancora risolto il
+     *                               problema LCS
      */
     public int getLengthOfSolution() {
         if (!this.isSolved)
@@ -128,11 +126,10 @@ public class LCSSolver {
 
     /**
      * Restituisce una soluzione del problema LCS.
-     * 
+     *
      * @return una sottosequenza di this.x e this.y di lunghezza massima
-     * @throws IllegalStateException
-     *                                   se il solver non ha ancora risolto il
-     *                                   problema LCS
+     * @throws IllegalStateException se il solver non ha ancora risolto il
+     *                               problema LCS
      */
     public String getOneSolution() {
         if (!this.isSolved)
@@ -163,12 +160,10 @@ public class LCSSolver {
     /**
      * Determina se una certa stringa è una sottosequenza comune delle due
      * stringhe di questo solver.
-     * 
-     * @param z
-     *              la string da controllare
+     *
+     * @param z la string da controllare
      * @return true se z è sottosequenza di this.x e di this.y, false altrimenti
-     * @throws NullPointerException
-     *                                  se z è null
+     * @throws NullPointerException se z è null
      */
     public boolean isCommonSubsequence(String z) {
         if (z == null)
@@ -178,11 +173,11 @@ public class LCSSolver {
 
     /*
      * Determina se una stringa è sottosequenza di un'altra stringa.
-     * 
+     *
      * @param z la stringa da testare
-     * 
+     *
      * @param w la stringa di cui z dovrebbe essere sottosequenza
-     * 
+     *
      * @return true se z è sottosequenza di w, false altrimenti
      */
     private static boolean isSubsequence(String z, String w) {
@@ -197,8 +192,8 @@ public class LCSSolver {
             // richiamo la funzione sul resto di z dopo aver fatto match del
             // primo carattere di z in w
             return isSubsequence(z.substring(1), w.substring(i + 1));
-        // il primo carattere di z non occorre mai in w, quindi z non può essere
-        // una sottosequenza
+            // il primo carattere di z non occorre mai in w, quindi z non può essere
+            // una sottosequenza
         else
             return false;
     }

@@ -11,7 +11,7 @@ valori della matrice. È possibile che esistano più allineamenti ottimi.
 
 ## Struttura dei sorgenti
 
-- `LCSSolver`: **esempio completo**, adattato dal precedente esercizio. Lunghezza della più lunga
+- `LCSSolver`: **esempio completo**. Lunghezza della più lunga
   **sottosequenza** comune e ricostruzione. Studiare `solve()` e `traceBack()`.
 - `AlignmentResult`: classe immutabile già implementata, con due righe allineate e valore ottimo.
 - `EditDistanceSolver`: **2 TODO obbligatori**: `distance(i,j)` e `traceBack(...)`.
