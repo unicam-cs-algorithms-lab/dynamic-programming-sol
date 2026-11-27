@@ -154,6 +154,14 @@ public class EditDistanceSolver {
             traceBack(i, j - 1, a, b);
             return;
         }
+        /*
+         * Caso teoricamente irraggiungibile.
+         *
+         * Per la ricorrenza di Levenshtein, ogni cella non iniziale
+         * deve avere almeno un predecessore che realizza il costo
+         * ottimo. Se nessuna condizione precedente è soddisfatta,
+         * la matrice o il traceback non rispettano la ricorrenza.
+         */
         throw new IllegalStateException("nessun predecessore ottimo");
     }
 }
